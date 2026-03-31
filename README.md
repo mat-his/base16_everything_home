@@ -40,10 +40,31 @@ This works through [tinted-web](https://github.com/mat-his/tinted-web), a tinted
 
 1. Install the [native messaging host](native-host/) so the extension can read your local config:
 
+   **Chrome / Chromium:**
+
    ```bash
    cd native-host
    ./install.sh <your-extension-id>
    ```
+
+   To find your extension ID:
+
+   1. Open `chrome://extensions`
+   2. Find 'Base16 Everything'
+   3. Copy the ID (looks like: `mlmhenlobfodphglalpgjpinfidhcbio`)
+
+   **Firefox:**
+
+   Firefox uses the add-on ID (`base16-everything@base16everything.com`) instead of a per-install extension UUID, so no argument is needed:
+
+   ```bash
+   cd native-host
+   ./install.sh --firefox
+   ```
+
+   This installs the manifest to `~/.mozilla/native-messaging-hosts/` (Linux) or `~/Library/Application Support/Mozilla/NativeMessagingHosts/` (macOS).
+
+   > If you installed Firefox from a non-standard location (e.g. Flatpak, Snap), the host directory may differ. See [MDN: Native manifests](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#manifest_location) for the full list.
 
 2. Add tinted-web to your tinty config (`~/.config/tinted-theming/tinty/config.toml`):
 
