@@ -55,7 +55,7 @@ This works through [tinted-web](https://github.com/mat-his/tinted-web), a tinted
 
    **Firefox:**
 
-   Firefox uses the add-on ID (`base16-everything@base16everything.com`) instead of a per-install extension UUID, so no argument is needed:
+   Firefox uses a fixed add-on ID instead of a per-install extension UUID, so no argument is needed:
 
    ```bash
    cd native-host

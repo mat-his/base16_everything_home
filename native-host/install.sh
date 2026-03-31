@@ -26,29 +26,30 @@ chmod +x "$SCRIPT_DIR/base16_config_host.py"
 
 if [ "$FIREFOX_MODE" = true ]; then
     # Firefox uses allowed_extensions with the add-on ID
-    MANIFEST_CONTENT=$(cat << EOF
+    MANIFEST_CONTENT=$(
+        cat <<EOF
 {
   "name": "$HOST_NAME",
   "description": "Native messaging host for Base16 Everything",
   "path": "$SCRIPT_DIR/base16_config_host.py",
   "type": "stdio",
   "allowed_extensions": [
-    "base16-everything@base16everything.com"
+    "a05fa7af-a38d-4616-aadb-5acab1f22ee3"
   ]
 }
 EOF
-)
+    )
 
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         MANIFEST_DIR="$HOME/.mozilla/native-messaging-hosts"
         mkdir -p "$MANIFEST_DIR"
-        echo "$MANIFEST_CONTENT" > "$MANIFEST_DIR/$HOST_NAME.json"
+        echo "$MANIFEST_CONTENT" >"$MANIFEST_DIR/$HOST_NAME.json"
         echo "Installed manifest to:"
         echo "  - $MANIFEST_DIR/$HOST_NAME.json"
     elif [[ "$OSTYPE" == "darwin"* ]]; then
         MANIFEST_DIR="$HOME/Library/Application Support/Mozilla/NativeMessagingHosts"
         mkdir -p "$MANIFEST_DIR"
-        echo "$MANIFEST_CONTENT" > "$MANIFEST_DIR/$HOST_NAME.json"
+        echo "$MANIFEST_CONTENT" >"$MANIFEST_DIR/$HOST_NAME.json"
         echo "Installed manifest to:"
         echo "  - $MANIFEST_DIR/$HOST_NAME.json"
     else
@@ -59,7 +60,8 @@ else
     EXTENSION_ID="$1"
 
     # Chrome/Chromium uses allowed_origins with the per-install extension UUID
-    MANIFEST_CONTENT=$(cat << EOF
+    MANIFEST_CONTENT=$(
+        cat <<EOF
 {
   "name": "$HOST_NAME",
   "description": "Native messaging host for Base16 Everything",
@@ -70,15 +72,15 @@ else
   ]
 }
 EOF
-)
+    )
 
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         CHROME_MANIFEST_DIR="$HOME/.config/google-chrome/NativeMessagingHosts"
         CHROMIUM_MANIFEST_DIR="$HOME/.config/chromium/NativeMessagingHosts"
 
         mkdir -p "$CHROME_MANIFEST_DIR" "$CHROMIUM_MANIFEST_DIR"
-        echo "$MANIFEST_CONTENT" > "$CHROME_MANIFEST_DIR/$HOST_NAME.json"
-        echo "$MANIFEST_CONTENT" > "$CHROMIUM_MANIFEST_DIR/$HOST_NAME.json"
+        echo "$MANIFEST_CONTENT" >"$CHROME_MANIFEST_DIR/$HOST_NAME.json"
+        echo "$MANIFEST_CONTENT" >"$CHROMIUM_MANIFEST_DIR/$HOST_NAME.json"
 
         echo "Installed manifest to:"
         echo "  - $CHROME_MANIFEST_DIR/$HOST_NAME.json"
@@ -87,7 +89,7 @@ EOF
     elif [[ "$OSTYPE" == "darwin"* ]]; then
         MANIFEST_DIR="$HOME/Library/Application Support/Google/Chrome/NativeMessagingHosts"
         mkdir -p "$MANIFEST_DIR"
-        echo "$MANIFEST_CONTENT" > "$MANIFEST_DIR/$HOST_NAME.json"
+        echo "$MANIFEST_CONTENT" >"$MANIFEST_DIR/$HOST_NAME.json"
 
         echo "Installed manifest to:"
         echo "  - $MANIFEST_DIR/$HOST_NAME.json"
@@ -104,7 +106,7 @@ CONFIG_FILE="$CONFIG_DIR/config.yaml"
 
 if [ ! -f "$CONFIG_FILE" ]; then
     mkdir -p "$CONFIG_DIR"
-    cat > "$CONFIG_FILE" << 'EOF'
+    cat >"$CONFIG_FILE" <<'EOF'
 # Base24 Everything Configuration
 # Same format as tinted-theming base24 schemes.
 # This overrides extension settings when present.
