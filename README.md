@@ -86,6 +86,25 @@ This works through [tinted-web](https://github.com/mat-his/tinted-web), a tinted
 
 The extension picks up the new palette on the next page load. No restart needed.
 
+### Additional Tips
+
+Don't forget to sync your system light/dark mode.
+If this parameter is not configured correctly, you may notice glitches when switching themes — inconsistent colors, partial theme reloads, or web pages that don't match the rest of your environment.
+
+Most modern Linux desktops rely on gsettings to define the preferred color scheme. On GNOME-based systems, toggling between light and dark modes can be done with a simple command:
+
+```bash
+gsettings set org.gnome.desktop.interface color-scheme prefer-light
+
+# or
+
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+```
+
+This value acts as a global signal for GTK applications. When set correctly, GTK-based software automatically adapts its appearance to match the selected mode.
+
+If you're building an automated workflow — where themes switch during the day or at night — this setting becomes essential. It ensures GTK applications respond consistently to theme changes.
+
 ## Account management
 
 After purchasing a license, you can manage your account at [base16everything.com/devices](https://base16everything.com/devices). Log in with your email to:

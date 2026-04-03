@@ -34,7 +34,7 @@ if [ "$FIREFOX_MODE" = true ]; then
   "path": "$SCRIPT_DIR/base16_config_host.py",
   "type": "stdio",
   "allowed_extensions": [
-    "a05fa7af-a38d-4616-aadb-5acab1f22ee3"
+    "{a05fa7af-a38d-4616-aadb-5acab1f22ee3}"
   ]
 }
 EOF
