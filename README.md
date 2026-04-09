@@ -4,7 +4,7 @@
 
 Base16 Everything is a browser extension that remaps website colors to any [base16/base24](https://github.com/tinted-theming/home) palette in real time. Your browser finally matches your terminal, editor, and desktop.
 
-[Install for Chrome](https://chrome.google.com/webstore/detail/base16-everything) | [Install for Firefox](https://addons.mozilla.org/en-US/firefox/addon/base16-everything) | [Website](https://base16everything.com)
+[Install for Chrome](https://chromewebstore.google.com/detail/base16-everything/jmofeafhkeohbpbedgbnkdlfaomjbnkf) | [Install for Firefox](https://addons.mozilla.org/addon/base16-everything) | [Website](https://base16everything.com)
 
 ## How it works
 
